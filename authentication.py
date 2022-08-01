@@ -1,9 +1,12 @@
 import jwt
+
+import logging
+
 from fastapi import HTTPException, status
 from passlib.context import CryptContext
 from dotenv import dotenv_values
+
 from models import User
-import logging
 
 
 logger = logging.getLogger("Authentication")

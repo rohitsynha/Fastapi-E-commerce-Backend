@@ -1,11 +1,15 @@
-from fastapi import BackgroundTasks, UploadFile, File, Form, Depends, HTTPException, status
-from fastapi_mail import FastMail, MessageSchema, ConnectionConfig
-from dotenv import dotenv_values
+import jwt
+
+import logging
+
 from pydantic import BaseModel, EmailStr
 from typing import List
+
+from fastapi import BackgroundTasks, Depends, File, Form, HTTPException, status, UploadFile
+from fastapi_mail import ConnectionConfig, FastMail, MessageSchema
+from dotenv import dotenv_values
+
 from models import User
-import jwt
-import logging
 
 
 logger = logging.getLogger("email")

@@ -1,7 +1,8 @@
 from datetime import datetime
+from pydantic import BaseModel
+
 from tortoise import Model, fields
 from tortoise.contrib.pydantic import pydantic_model_creator
-from pydantic import BaseModel
 
 
 class User(Model):

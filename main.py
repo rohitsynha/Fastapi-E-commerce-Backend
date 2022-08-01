@@ -1,14 +1,17 @@
-from authentication import verify_token, generate_hashed_password
-from emailFeat import send_email
-from fastapi import FastAPI, Request, HTTPException, status
+import logging
+
+from typing import List, Optional, Type
+
+from fastapi import FastAPI, HTTPException, Request, status
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from tortoise import BaseDBAsyncClient
 from tortoise.contrib.fastapi import register_tortoise
 from tortoise.signals import post_save
-from typing import List, Optional, Type
-from models import user_pydanticIn, User, user_pydantic, Business, business_pydantic
-import logging
+
+from authentication import generate_hashed_password, verify_token
+from emailFeat import send_email
+from models import Business, business_pydantic, User, user_pydantic, user_pydanticIn
 
 
 logger = logging.getLogger("main")
